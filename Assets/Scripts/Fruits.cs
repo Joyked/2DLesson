@@ -2,7 +2,9 @@ using System.Collections;
 using UnityEngine;
 
 public class Fruits : MonoBehaviour
-{
+{   
+    private const string AteCommand = "Ate";
+    
     private Animator _animator;
 
     private void Awake()
@@ -19,7 +21,7 @@ public class Fruits : MonoBehaviour
     private IEnumerator Ate()
     {
         var animation = _animator.GetCurrentAnimatorStateInfo(0);
-        _animator.SetTrigger("Ate");
+        _animator.SetTrigger(AteCommand);
         yield return new WaitForSeconds(animation.length);
         gameObject.SetActive(false);
     }

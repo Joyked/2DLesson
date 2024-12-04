@@ -1,25 +1,20 @@
 using System;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+public class EnemyMover : MonoBehaviour
 {
     [SerializeField] private Transform[] _waypoints;
     [SerializeField] private float _speed;
-
-    private SpriteRenderer _spriteRenderer;
+    
     private int _currentWaipoint = 0;
+    private int _mathRound = 3;
 
-    private void Awake()
+    private void Update()
     {
-        _spriteRenderer = GetComponent<SpriteRenderer>();
-    }
-
-    private void FixedUpdate()
-    {
-        if (Math.Round(transform.position.x, 3) == Math.Round(_waypoints[_currentWaipoint].position.x, 3))
+        if (Math.Round(transform.position.x, _mathRound) == Math.Round(_waypoints[_currentWaipoint].position.x, _mathRound))
         {
             _currentWaipoint = (_currentWaipoint + 1) % _waypoints.Length;
-            _spriteRenderer.flipX = !_spriteRenderer.flipX;
+            transform.eulerAngles = (Math.Abs(transform.rotation.y) == 1) ? Vector3.up * 0 : Vector3.up * 180;
         }
         
         transform.position = Vector2.MoveTowards(transform.position, _waypoints[_currentWaipoint].position, _speed * Time.deltaTime);
