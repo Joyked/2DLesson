@@ -2,27 +2,28 @@ using System.Collections;
 using UnityEngine;
 
 public class Fruits : MonoBehaviour
-{   
-    private const string AteCommand = "Ate";
+{
+    private readonly int AteCommand = Animator.StringToHash("Ate");
     
     private Animator _animator;
+    private WaitForSeconds _waitForSeconds;
 
     private void Awake()
     {
         _animator = GetComponent<Animator>();
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
+    public void Eat()
     {
-        if (other.TryGetComponent(out PlayerMover player)){}
-            StartCoroutine(Ate());
+        StartCoroutine("Ate");
     }
-
+    
     private IEnumerator Ate()
     {
         var animation = _animator.GetCurrentAnimatorStateInfo(0);
+        _waitForSeconds = new WaitForSeconds(animation.length);
         _animator.SetTrigger(AteCommand);
-        yield return new WaitForSeconds(animation.length);
+        yield return _waitForSeconds;
         gameObject.SetActive(false);
     }
 }

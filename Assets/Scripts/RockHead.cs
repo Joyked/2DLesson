@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class RockHead : MonoBehaviour
 {
+    private readonly int WakeUp = Animator.StringToHash("WakeUp");
+    
     private Animator _animator;
     private bool isWakeUp = false;
 
@@ -15,7 +17,7 @@ public class RockHead : MonoBehaviour
         if (other.gameObject.TryGetComponent(out PlayerMover player))
         {
             isWakeUp = true;
-            _animator.SetBool("WakeUp", isWakeUp);
+            _animator.SetBool(WakeUp, isWakeUp);
         }
     }
 
@@ -24,8 +26,7 @@ public class RockHead : MonoBehaviour
         if (other.gameObject.TryGetComponent(out PlayerMover player))
         {
             isWakeUp = false;
-            _animator.SetBool("WakeUp", isWakeUp);
+            _animator.SetBool(WakeUp, isWakeUp);
         }
-            
     }
 }

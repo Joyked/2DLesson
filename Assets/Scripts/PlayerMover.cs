@@ -6,7 +6,7 @@ public class PlayerMover : MonoBehaviour
     private const string Horizontal = "Horizontal";
     private const string Jump = "Jump";
 
-    [SerializeField] private GroundCheck _groundCheck;
+    [SerializeField] private LandDetector _landDetector;
     [Space]
     [SerializeField] private float _speed;
     [SerializeField] private float _jumpForce;
@@ -24,12 +24,14 @@ public class PlayerMover : MonoBehaviour
 
     private void OnEnable()
     {
-        _groundCheck.IsGround += ChangeLandingState;
+        _landDetector.Landed += TurnOnJump;
+        _landDetector.Jumped += TurnOffJump;
     }
 
     private void OnDisable()
     {
-        _groundCheck.IsGround -= ChangeLandingState;
+        _landDetector.Landed -= TurnOnJump;
+        _landDetector.Jumped -= TurnOffJump;
     }
 
     private void Update()
@@ -46,8 +48,13 @@ public class PlayerMover : MonoBehaviour
             _spriteRenderer.flipX = false;
     }
 
-    private void ChangeLandingState(bool isGround)
+    private void TurnOnJump()
     {
-        _isGround = isGround;
+        _isGround = true;
+    }
+
+    private void TurnOffJump()
+    {
+        _isGround = false;
     }
 }

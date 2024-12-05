@@ -1,19 +1,20 @@
 using System;
 using UnityEngine;
 
-public class GroundCheck : MonoBehaviour
+public class LandDetector : MonoBehaviour
 {
-    public event Action<bool> IsGround;
+    public event Action Landed;
+    public event Action Jumped;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         if(other.gameObject.TryGetComponent(out Ground ground))
-            IsGround?.Invoke(true);
+            Landed?.Invoke();
     }
 
     private void OnTriggerExit2D(Collider2D other)
     {
         if(other.TryGetComponent(out Ground ground))
-            IsGround?.Invoke(false);
+            Jumped?.Invoke();
     }
 }

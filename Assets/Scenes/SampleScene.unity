@@ -14676,7 +14676,7 @@ GameObject:
   - component: {fileID: 638321475}
   - component: {fileID: 638321477}
   m_Layer: 0
-  m_Name: GroundCheck
+  m_Name: LandDetector
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15559,6 +15559,7 @@ GameObject:
   - component: {fileID: 1011368598}
   - component: {fileID: 1011368600}
   - component: {fileID: 1011368601}
+  - component: {fileID: 1011368602}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -15691,7 +15692,7 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.0046133026, y: -0.034454197}
-  m_Size: {x: 0.16, y: 0.24812132}
+  m_Size: {x: 0.2, y: 0.24812132}
   m_Direction: 0
 --- !u!114 &1011368600
 MonoBehaviour:
@@ -15705,8 +15706,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac2292b2de754604eb2334a942e5a209, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _groundCheck: {fileID: 638321475}
-  _speed: 3
+  _landDetector: {fileID: 638321475}
+  _speed: 3.5
   _jumpForce: 370
   _landingHeight: 20
 --- !u!114 &1011368601
@@ -15719,6 +15720,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 92b670d1d34556642840cedf6c14ef8c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1011368602
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1011368594}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2368963203e41f2488016ff9474df2b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1066150010

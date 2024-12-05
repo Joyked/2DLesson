@@ -4,9 +4,10 @@ using UnityEngine;
 public class PlayerAnimation : MonoBehaviour
 {
     private const string Horizontal = "Horizontal";
-    private const string Jump = "Jump";
-    private const string Move = "Move";
-    private const string Fall = "Fall";
+
+    private readonly int Jump = Animator.StringToHash("Jump");
+    private readonly int Move = Animator.StringToHash("Move");
+    private readonly int Fall = Animator.StringToHash("Fall");
     
     private Animator _animator;
     private Rigidbody2D _rigidbody;
