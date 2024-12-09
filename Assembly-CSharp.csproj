@@ -45,10 +45,10 @@
     <Compile Include="Assets\Scripts\EnemyMover.cs" />
     <Compile Include="Assets\Scripts\PlayerAnimation.cs" />
     <Compile Include="Assets\Scripts\LandDetector.cs" />
+    <Compile Include="Assets\Scripts\EatFruits.cs" />
     <Compile Include="Assets\Scripts\RockHead.cs" />
     <Compile Include="Assets\Scripts\PlayerMover.cs" />
     <Compile Include="Assets\Scripts\Ground.cs" />
-    <Compile Include="Assets\Scripts\EatFruits.cs" />
     <Reference Include="UnityEngine">
       <HintPath>C:\Program Files\Unity\Hub\Editor\2021.3.36f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
     </Reference>

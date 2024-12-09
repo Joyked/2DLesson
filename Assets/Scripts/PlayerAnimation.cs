@@ -1,10 +1,12 @@
 using System;
 using UnityEngine;
 
+[RequireComponent(typeof(Rigidbody2D))]
+[RequireComponent(typeof(Animator))]
 public class PlayerAnimation : MonoBehaviour
 {
     private const string Horizontal = "Horizontal";
-
+    
     private readonly int Jump = Animator.StringToHash("Jump");
     private readonly int Move = Animator.StringToHash("Move");
     private readonly int Fall = Animator.StringToHash("Fall");

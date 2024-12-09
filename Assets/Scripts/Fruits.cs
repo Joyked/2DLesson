@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
+[RequireComponent(typeof(Animator))]
 public class Fruits : MonoBehaviour
 {
     private readonly int AteCommand = Animator.StringToHash("Ate");
@@ -13,12 +14,12 @@ public class Fruits : MonoBehaviour
         _animator = GetComponent<Animator>();
     }
 
-    public void Eat()
+    public void Ate()
     {
-        StartCoroutine("Ate");
+        StartCoroutine(Disappear());
     }
     
-    private IEnumerator Ate()
+    private IEnumerator Disappear()
     {
         var animation = _animator.GetCurrentAnimatorStateInfo(0);
         _waitForSeconds = new WaitForSeconds(animation.length);

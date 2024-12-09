@@ -1,8 +1,9 @@
 using UnityEngine;
 
+[RequireComponent(typeof(Animator))]
 public class RockHead : MonoBehaviour
 {
-    private readonly int WakeUp = Animator.StringToHash("WakeUp");
+    private readonly int WakeUp = Animator.StringToHash("Wake Up");
     
     private Animator _animator;
     private bool isWakeUp = false;
