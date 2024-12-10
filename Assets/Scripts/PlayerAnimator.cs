@@ -3,13 +3,16 @@ using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(Animator))]
-public class PlayerAnimation : MonoBehaviour
+public class PlayerAnimator : MonoBehaviour
 {
     private const string Horizontal = "Horizontal";
-    
-    private readonly int Jump = Animator.StringToHash("Jump");
-    private readonly int Move = Animator.StringToHash("Move");
-    private readonly int Fall = Animator.StringToHash("Fall");
+
+    private const string Jump = nameof(Jump);
+    private const string Move = nameof(Move);
+    private const string Fall = nameof(Fall);
+    private readonly int JumpId = Animator.StringToHash(Jump);
+    private readonly int MoveId = Animator.StringToHash(Move);
+    private readonly int FallId = Animator.StringToHash(Fall);
     
     private Animator _animator;
     private Rigidbody2D _rigidbody;
@@ -23,6 +26,11 @@ public class PlayerAnimation : MonoBehaviour
 
     private void Update()
     {
+        Fly();
+    }
+
+    private void Fly()
+    {
         bool isMove = false;
         bool isFall = false;
         bool isJump = false;
@@ -32,11 +40,11 @@ public class PlayerAnimation : MonoBehaviour
         else if (Math.Round(_rigidbody.velocity.y, _mathRound)  < 0)
             isFall = true;
         
-        if (Math.Round(_rigidbody.velocity.y, 5) == 0 && Input.GetAxis(Horizontal) != 0)
+        if (Math.Round(_rigidbody.velocity.y, _mathRound) == 0 && Input.GetAxis(Horizontal) != 0)
             isMove = true;
         
-        _animator.SetBool(Jump, isJump);
-        _animator.SetBool(Fall, isFall);
-        _animator.SetBool(Move, isMove);
+        _animator.SetBool(JumpId, isJump);
+        _animator.SetBool(FallId, isFall);
+        _animator.SetBool(MoveId, isMove);
     }
 }

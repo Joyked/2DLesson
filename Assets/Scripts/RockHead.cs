@@ -3,7 +3,8 @@ using UnityEngine;
 [RequireComponent(typeof(Animator))]
 public class RockHead : MonoBehaviour
 {
-    private readonly int WakeUp = Animator.StringToHash("Wake Up");
+    private const string WakeUp = nameof(WakeUp);
+    private readonly int WakeUpId = Animator.StringToHash(WakeUp);
     
     private Animator _animator;
     private bool isWakeUp = false;
@@ -18,7 +19,7 @@ public class RockHead : MonoBehaviour
         if (other.gameObject.TryGetComponent(out PlayerMover player))
         {
             isWakeUp = true;
-            _animator.SetBool(WakeUp, isWakeUp);
+            _animator.SetBool(WakeUpId, isWakeUp);
         }
     }
 
@@ -27,7 +28,7 @@ public class RockHead : MonoBehaviour
         if (other.gameObject.TryGetComponent(out PlayerMover player))
         {
             isWakeUp = false;
-            _animator.SetBool(WakeUp, isWakeUp);
+            _animator.SetBool(WakeUpId, isWakeUp);
         }
     }
 }

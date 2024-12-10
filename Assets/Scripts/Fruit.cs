@@ -2,9 +2,10 @@ using System.Collections;
 using UnityEngine;
 
 [RequireComponent(typeof(Animator))]
-public class Fruits : MonoBehaviour
+public class Fruit : MonoBehaviour
 {
-    private readonly int AteCommand = Animator.StringToHash("Ate");
+    private const string Ate = nameof(Ate);
+    private readonly int AteCommand = Animator.StringToHash(Ate);
     
     private Animator _animator;
     private WaitForSeconds _waitForSeconds;
@@ -14,17 +15,20 @@ public class Fruits : MonoBehaviour
         _animator = GetComponent<Animator>();
     }
 
-    public void Ate()
+    public void BeEaten()
     {
         StartCoroutine(Disappear());
     }
     
     private IEnumerator Disappear()
     {
-        var animation = _animator.GetCurrentAnimatorStateInfo(0);
-        _waitForSeconds = new WaitForSeconds(animation.length);
+        int numberLayer = 0;
+        int animationNumber = _animator.GetCurrentAnimatorClipInfo(numberLayer).Length;
+        _waitForSeconds = new WaitForSeconds(animationNumber);
         _animator.SetTrigger(AteCommand);
+        
         yield return _waitForSeconds;
+        
         gameObject.SetActive(false);
     }
 }

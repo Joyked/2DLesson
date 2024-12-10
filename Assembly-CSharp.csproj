@@ -41,11 +41,11 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\Fruits.cs" />
+    <Compile Include="Assets\Scripts\Fruit.cs" />
     <Compile Include="Assets\Scripts\EnemyMover.cs" />
-    <Compile Include="Assets\Scripts\PlayerAnimation.cs" />
+    <Compile Include="Assets\Scripts\PlayerAnimator.cs" />
     <Compile Include="Assets\Scripts\LandDetector.cs" />
-    <Compile Include="Assets\Scripts\EatFruits.cs" />
+    <Compile Include="Assets\Scripts\EaterFruits.cs" />
     <Compile Include="Assets\Scripts\RockHead.cs" />
     <Compile Include="Assets\Scripts\PlayerMover.cs" />
     <Compile Include="Assets\Scripts\Ground.cs" />
