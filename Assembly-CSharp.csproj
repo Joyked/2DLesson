@@ -41,14 +41,21 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\Fruit.cs" />
-    <Compile Include="Assets\Scripts\EnemyMover.cs" />
+    <Compile Include="Assets\Scripts\FruitAnimation.cs" />
+    <Compile Include="Assets\Scripts\EnemyInput.cs" />
+    <Compile Include="Assets\Scripts\INavigator.cs" />
     <Compile Include="Assets\Scripts\PlayerAnimator.cs" />
     <Compile Include="Assets\Scripts\LandDetector.cs" />
-    <Compile Include="Assets\Scripts\EaterFruits.cs" />
+    <Compile Include="Assets\Scripts\IJumper.cs" />
+    <Compile Include="Assets\Scripts\PlayerInput.cs" />
     <Compile Include="Assets\Scripts\RockHead.cs" />
-    <Compile Include="Assets\Scripts\PlayerMover.cs" />
+    <Compile Include="Assets\Scripts\Health.cs" />
+    <Compile Include="Assets\Scripts\Mover.cs" />
     <Compile Include="Assets\Scripts\Ground.cs" />
+    <Compile Include="Assets\Scripts\Bootstarp.cs" />
+    <Compile Include="Assets\Scripts\Attack.cs" />
+    <Compile Include="Assets\Scripts\HeallObject.cs" />
+    <Compile Include="Assets\Scripts\Eater.cs" />
     <Reference Include="UnityEngine">
       <HintPath>C:\Program Files\Unity\Hub\Editor\2021.3.36f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
     </Reference>

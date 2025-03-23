@@ -7,7 +7,7 @@ public class RockHead : MonoBehaviour
     private readonly int WakeUpId = Animator.StringToHash(WakeUp);
     
     private Animator _animator;
-    private bool isWakeUp = false;
+    private bool isWakeUp;
 
     private void Awake()
     {
@@ -16,7 +16,7 @@ public class RockHead : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.gameObject.TryGetComponent(out PlayerMover player))
+        if (other.gameObject.TryGetComponent(out Mover player))
         {
             isWakeUp = true;
             _animator.SetBool(WakeUpId, isWakeUp);
@@ -25,7 +25,7 @@ public class RockHead : MonoBehaviour
 
     private void OnCollisionExit2D(Collision2D other)
     {
-        if (other.gameObject.TryGetComponent(out PlayerMover player))
+        if (other.gameObject.TryGetComponent(out Mover player))
         {
             isWakeUp = false;
             _animator.SetBool(WakeUpId, isWakeUp);
