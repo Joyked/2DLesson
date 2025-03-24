@@ -1,21 +1,23 @@
+using System;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class Mover : MonoBehaviour
 {
+    public event Action TurnedRight;
+    public event Action TurnedLeft;
+    
     [SerializeField] private float _speed;
     [SerializeField] private float _jumpForce;
     
     private INavigator _navigator;
-    private SpriteRenderer _sprite;
     private IJumper _jumper;
     private Rigidbody2D _rigidbody;
 
     public void Awake()
     {
-        _navigator = GetComponentInChildren<INavigator>();
-        _rigidbody = GetComponentInChildren<Rigidbody2D>();
-        _sprite = GetComponent<SpriteRenderer>();
+        _navigator = GetComponent<INavigator>();
+        _rigidbody = GetComponent<Rigidbody2D>();
 
         if (_navigator is PlayerInput)
             _jumper = GetComponent<IJumper>();
@@ -36,11 +38,11 @@ public class Mover : MonoBehaviour
     {
         Vector2 direction = _navigator.GetDirection();
         Vector3 position = transform.position + (Vector3)direction * _speed * Time.deltaTime;
-        
+
         if (position.x < transform.position.x)
-            _sprite.flipX = true;
+            TurnedRight?.Invoke();
         else if (position.x > transform.position.x)
-            _sprite.flipX = false;
+            TurnedLeft?.Invoke();
 
         transform.position = position;
     }

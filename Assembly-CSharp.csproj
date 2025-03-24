@@ -41,21 +41,22 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\FruitAnimation.cs" />
-    <Compile Include="Assets\Scripts\EnemyInput.cs" />
-    <Compile Include="Assets\Scripts\INavigator.cs" />
-    <Compile Include="Assets\Scripts\PlayerAnimator.cs" />
-    <Compile Include="Assets\Scripts\LandDetector.cs" />
-    <Compile Include="Assets\Scripts\IJumper.cs" />
-    <Compile Include="Assets\Scripts\PlayerInput.cs" />
-    <Compile Include="Assets\Scripts\RockHead.cs" />
-    <Compile Include="Assets\Scripts\Health.cs" />
-    <Compile Include="Assets\Scripts\Mover.cs" />
-    <Compile Include="Assets\Scripts\Ground.cs" />
+    <Compile Include="Assets\Scripts\Environment\FruitAnimation.cs" />
+    <Compile Include="Assets\Scripts\Enemy\EnemyNavigator.cs" />
+    <Compile Include="Assets\Scripts\Characters\INavigator.cs" />
+    <Compile Include="Assets\Scripts\Player\PlayerAnimator.cs" />
+    <Compile Include="Assets\Scripts\Player\LandDetector.cs" />
+    <Compile Include="Assets\Scripts\Player\IJumper.cs" />
+    <Compile Include="Assets\Scripts\Player\PlayerInput.cs" />
+    <Compile Include="Assets\Scripts\Enemy\RockHead.cs" />
+    <Compile Include="Assets\Scripts\Characters\Health.cs" />
+    <Compile Include="Assets\Scripts\Characters\Mover.cs" />
+    <Compile Include="Assets\Scripts\Environment\Ground.cs" />
     <Compile Include="Assets\Scripts\Bootstarp.cs" />
-    <Compile Include="Assets\Scripts\Attack.cs" />
-    <Compile Include="Assets\Scripts\HeallObject.cs" />
-    <Compile Include="Assets\Scripts\Eater.cs" />
+    <Compile Include="Assets\Scripts\Characters\Attacker.cs" />
+    <Compile Include="Assets\Scripts\Environment\HeallObject.cs" />
+    <Compile Include="Assets\Scripts\Player\Eater.cs" />
+    <Compile Include="Assets\Scripts\Characters\RotatornCharacters.cs" />
     <Reference Include="UnityEngine">
       <HintPath>C:\Program Files\Unity\Hub\Editor\2021.3.36f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
     </Reference>

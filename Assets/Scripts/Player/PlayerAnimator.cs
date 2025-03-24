@@ -1,7 +1,6 @@
 using System;
 using UnityEngine;
 
-[RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(Animator))]
 public class PlayerAnimator : MonoBehaviour
 {
@@ -21,13 +20,11 @@ public class PlayerAnimator : MonoBehaviour
     private void Awake()
     {
         _animator = GetComponent<Animator>();
-        _rigidbody = GetComponent<Rigidbody2D>();
+        _rigidbody = GetComponentInParent<Rigidbody2D>();
     }
 
-    private void Update()
-    {
+    private void Update() =>
         Fly();
-    }
 
     private void Fly()
     {

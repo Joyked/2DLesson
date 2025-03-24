@@ -1,18 +1,22 @@
 using UnityEngine;
 
 [RequireComponent(typeof(Mover))]
-class EnemyInput : MonoBehaviour, INavigator
+class EnemyNavigator : MonoBehaviour, INavigator
 {
-    [SerializeField] private Transform[] _waypoints;
     [SerializeField] private float _detectionRange;
-    [SerializeField] private Transform _player;
+    [SerializeField] private Transform[] _waypoints;
+
+    private PlayerInput _player;
     private int _waypointsIndex = 0;
 
+    public void Initialized(PlayerInput player) =>
+        _player = player;
+    
     public Vector2 GetDirection()
     {
-        if (_player != null && Vector2.Distance(transform.position, _player.position) < _detectionRange)
+        if (_player != null && Vector2.Distance(transform.position, _player.transform.position) < _detectionRange)
         {
-            return (_player.position - transform.position).normalized;
+            return (_player.transform.position - transform.position).normalized;
         }
         else
         {

@@ -12,8 +12,6 @@ public class Health : MonoBehaviour
 
         if (_healthPoint > _maxHealthPoint)
             _healthPoint = _maxHealthPoint;
-        
-        Debug.Log(_healthPoint);
     }
 
     public void TakeDamage(float damage)
@@ -23,7 +21,5 @@ public class Health : MonoBehaviour
 
         if (_healthPoint <= 0)
             Destroy(gameObject);
-        
-        Debug.Log(_healthPoint);
     }
 }

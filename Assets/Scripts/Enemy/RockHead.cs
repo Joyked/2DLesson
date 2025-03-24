@@ -9,10 +9,8 @@ public class RockHead : MonoBehaviour
     private Animator _animator;
     private bool isWakeUp;
 
-    private void Awake()
-    {
+    private void Awake() =>
         _animator = GetComponent<Animator>();
-    }
 
     private void OnCollisionEnter2D(Collision2D other)
     {

@@ -10,15 +10,11 @@ public class FruitAnimation : MonoBehaviour
     private Animator _animator;
     private WaitForSeconds _waitForSeconds;
     
-    private void Awake()
-    {
+    private void Awake() =>
         _animator = GetComponent<Animator>();
-    }
 
-    public void BeEaten()
-    {
+    public void BeEaten() =>
         StartCoroutine(Disappear());
-    }
     
     private IEnumerator Disappear()
     {
@@ -26,9 +22,7 @@ public class FruitAnimation : MonoBehaviour
         int animationNumber = _animator.GetCurrentAnimatorClipInfo(numberLayer).Length;
         _waitForSeconds = new WaitForSeconds(animationNumber);
         _animator.SetTrigger(AteCommand);
-        
         yield return _waitForSeconds;
-        
         gameObject.SetActive(false);
     }
 }

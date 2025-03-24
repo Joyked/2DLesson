@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class Attack : MonoBehaviour
+public class Attacker : MonoBehaviour
 {
     [SerializeField] private float _damage;
     [SerializeField] private float _timeAttack;
