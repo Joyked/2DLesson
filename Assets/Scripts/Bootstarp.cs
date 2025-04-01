@@ -9,8 +9,6 @@ public class Bootstarp : MonoBehaviour
 
     private void Awake()
     {
-        _player.Initialize();
-
         foreach (var enemy in _enemys)
             enemy.Initialized(_player);
     }

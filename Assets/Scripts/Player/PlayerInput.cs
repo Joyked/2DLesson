@@ -10,7 +10,7 @@ public class PlayerInput : MonoBehaviour, INavigator, IJumper
     private LandDetector _landDetector;
     private bool _isGround;
 
-    public void Initialize() => 
+    public void Awake() => 
         _landDetector = GetComponentInChildren<LandDetector>();
     
     private void OnEnable()
