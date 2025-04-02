@@ -53,7 +53,7 @@
     <Compile Include="Assets\Scripts\Player\PlayerInput.cs" />
     <Compile Include="Assets\Scripts\Characters\RotatornCharacters.cs" />
     <Compile Include="Assets\Scripts\Characters\Attacker.cs" />
-    <Compile Include="Assets\Scripts\Enemy\RockHead.cs" />
+    <Compile Include="Assets\Scripts\Enemy\RockHeadAnimator.cs" />
     <Compile Include="Assets\Scripts\Environment\HeallObject.cs" />
     <Compile Include="Assets\Scripts\Characters\Health.cs" />
     <Compile Include="Assets\Scripts\Characters\Mover.cs" />

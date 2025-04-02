@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -18,15 +19,20 @@ public class HealthBar : PainterHealBase
         _slider.value = _currentHealth;
     }
 
-    private void Update()
+    private IEnumerator ApplyValue()
     {
-        if (_currentHealth != _targetHealth)
+        while(!Mathf.Approximately(_currentHealth, _targetHealth))
         {
-            _currentHealth = Mathf.MoveTowards(_currentHealth, _targetHealth, _speed * Time.deltaTime);
+            _currentHealth = Mathf.MoveTowards (_currentHealth, _targetHealth, _speed * Time.deltaTime);
             _slider.value = _currentHealth;
+
+            yield return null;
         }
     }
 
-    protected override void DrawHealth() =>
+    protected override void DrawHealth()
+    {
         _targetHealth = _health.HealthPoint;
+        StartCoroutine(ApplyValue());
+    }
 }

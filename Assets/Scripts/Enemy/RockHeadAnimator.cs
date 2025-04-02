@@ -1,7 +1,7 @@
 using UnityEngine;
 
 [RequireComponent(typeof(Animator))]
-public class RockHead : MonoBehaviour
+public class RockHeadAnimator : MonoBehaviour
 {
     private const string WakeUp = nameof(WakeUp);
     private readonly int WakeUpId = Animator.StringToHash(WakeUp);

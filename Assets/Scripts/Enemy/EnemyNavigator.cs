@@ -8,8 +8,9 @@ class EnemyNavigator : MonoBehaviour, INavigator
 
     private PlayerInput _player;
     private int _waypointsIndex = 0;
+    private float _distansToPoint = 0.2f;
 
-    public void Initialized(PlayerInput player) =>
+    public void Initialize(PlayerInput player) =>
         _player = player;
     
     public Vector2 GetDirection()
@@ -26,7 +27,7 @@ class EnemyNavigator : MonoBehaviour, INavigator
             Transform targetPoint = _waypoints[_waypointsIndex];
             Vector2 direction = (targetPoint.position - transform.position).normalized;
 
-            if (Vector2.Distance(transform.position, targetPoint.position) < 0.2f)
+            if (Vector2.Distance(transform.position, targetPoint.position) < _distansToPoint)
                 _waypointsIndex = (_waypointsIndex + 1) % _waypoints.Length;
             
             return direction;

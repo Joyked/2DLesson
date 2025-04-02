@@ -24,9 +24,10 @@ public class Attacker : MonoBehaviour
     {
         WaitForSeconds second = new WaitForSeconds(_timeAttack);
 
-        while (true)
+        while (enabled)
         {
             enemy.TakeDamage(_damage);
+            
             yield return second;
         }
     }
