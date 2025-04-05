@@ -30,7 +30,6 @@ public class Health : MonoBehaviour
         if (_healthPoint <= 0)
             Destroy(gameObject);
         
-        Debug.Log(HealthPoint);
         HealthChanged?.Invoke();
     }
 }
