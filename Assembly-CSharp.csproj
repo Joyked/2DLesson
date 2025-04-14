@@ -60,6 +60,7 @@
     <Compile Include="Assets\Scripts\Environment\Ground.cs" />
     <Compile Include="Assets\Scripts\Bootstarp.cs" />
     <Compile Include="Assets\Scripts\Player\Vampirism.cs" />
+    <Compile Include="Assets\Scripts\Characters\Dier.cs" />
     <Reference Include="UnityEngine">
       <HintPath>C:\Program Files\Unity\Hub\Editor\2021.3.36f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
     </Reference>

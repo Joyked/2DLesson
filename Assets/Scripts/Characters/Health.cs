@@ -1,23 +1,25 @@
 using System;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class Health : MonoBehaviour
 {
-    [SerializeField] private float _healthPoint;
-    [SerializeField] private float _maxHealthPoint;
+    [SerializeField] private float _point;
+    [SerializeField] private float _maxPoint;
 
     public event Action HealthChanged;
+    public event Action Died;
 
-    public float MaxHealthPoint => _maxHealthPoint;
-    public float HealthPoint => _healthPoint;
+    public float MaxPoint => _maxPoint;
+    public float Point => _point;
 
     public void Heal(float healPoint)
     {
         if (healPoint > 0)
-            _healthPoint += healPoint;
+            _point += healPoint;
 
-        if (_healthPoint > _maxHealthPoint)
-            _healthPoint = _maxHealthPoint;
+        if (_point > _maxPoint)
+            _point = _maxPoint;
         
         HealthChanged?.Invoke();
     }
@@ -25,10 +27,10 @@ public class Health : MonoBehaviour
     public void TakeDamage(float damage)
     {
         if (damage > 0)
-            _healthPoint -= damage;
+            _point -= damage;
 
-        if (_healthPoint <= 0)
-            Destroy(gameObject);
+        if (_point <= 0)
+            Died?.Invoke();
         
         HealthChanged?.Invoke();
     }

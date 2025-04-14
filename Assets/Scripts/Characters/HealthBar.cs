@@ -14,8 +14,8 @@ public class HealthBar : PainterHealBase
     private void Awake()
     {
         _slider = GetComponent<Slider>();
-        _slider.maxValue = _health.MaxHealthPoint;
-        _currentHealth = _health.HealthPoint;
+        _slider.maxValue = _health.MaxPoint;
+        _currentHealth = _health.Point;
         _slider.value = _currentHealth;
     }
 
@@ -32,7 +32,7 @@ public class HealthBar : PainterHealBase
 
     protected override void DrawHealth()
     {
-        _targetHealth = _health.HealthPoint;
+        _targetHealth = _health.Point;
         StartCoroutine(ApplyValue());
     }
 }

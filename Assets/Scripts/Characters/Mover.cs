@@ -4,8 +4,6 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 public class Mover : MonoBehaviour
 {
-    public event Action TurnedRight;
-    public event Action TurnedLeft;
     
     [SerializeField] private float _speed;
     [SerializeField] private float _jumpForce;
@@ -13,10 +11,14 @@ public class Mover : MonoBehaviour
     private INavigator _navigator;
     private IJumper _jumper;
     private Rigidbody2D _rigidbody;
+    private int _mathRound = 3;
+    
+    public event Action TurnedRight;
+    public event Action TurnedLeft;
 
     public void Awake()
     {
-        _navigator = GetComponent<INavigator>();
+        _navigator = GetComponentInChildren<INavigator>();
         _rigidbody = GetComponent<Rigidbody2D>();
 
         if (_navigator is PlayerInput)

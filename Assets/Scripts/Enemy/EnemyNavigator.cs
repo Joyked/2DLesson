@@ -1,23 +1,33 @@
+using System;
 using UnityEngine;
 
-[RequireComponent(typeof(Mover))]
 class EnemyNavigator : MonoBehaviour, INavigator
 {
     [SerializeField] private float _detectionRange;
     [SerializeField] private Transform[] _waypoints;
-
-    private PlayerInput _player;
+    
     private int _waypointsIndex = 0;
     private float _distansToPoint = 0.2f;
+    private Transform _target;
 
-    public void Initialize(PlayerInput player) =>
-        _player = player;
-    
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.TryGetComponent(out PlayerInput player))
+            _target = player.transform;
+
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.gameObject.TryGetComponent(out PlayerInput player))
+            _target = null;
+    }
+
     public Vector2 GetDirection()
     {
-        if (_player != null && Vector2.Distance(transform.position, _player.transform.position) < _detectionRange)
+        if (_target != null)
         {
-            return (_player.transform.position - transform.position).normalized;
+            return (_target.transform.position - transform.position).normalized;
         }
         else
         {
@@ -27,7 +37,7 @@ class EnemyNavigator : MonoBehaviour, INavigator
             Transform targetPoint = _waypoints[_waypointsIndex];
             Vector2 direction = (targetPoint.position - transform.position).normalized;
 
-            if (Vector2.Distance(transform.position, targetPoint.position) < _distansToPoint)
+            if ((transform.position - targetPoint.position).sqrMagnitude < _distansToPoint * _distansToPoint)
                 _waypointsIndex = (_waypointsIndex + 1) % _waypoints.Length;
             
             return direction;
