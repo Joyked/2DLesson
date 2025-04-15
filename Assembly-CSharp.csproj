@@ -42,10 +42,11 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\Player\Eater.cs" />
-    <Compile Include="Assets\Scripts\Environment\FruitAnimation.cs" />
+    <Compile Include="Assets\Scripts\Environment\FruitAnimator.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyNavigator.cs" />
     <Compile Include="Assets\Scripts\Characters\PainterHealBase.cs" />
     <Compile Include="Assets\Scripts\Characters\INavigator.cs" />
+    <Compile Include="Assets\Scripts\Characters\Dier.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerAnimator.cs" />
     <Compile Include="Assets\Scripts\Player\LandDetector.cs" />
     <Compile Include="Assets\Scripts\Characters\HealthBar.cs" />
@@ -60,7 +61,9 @@
     <Compile Include="Assets\Scripts\Environment\Ground.cs" />
     <Compile Include="Assets\Scripts\Bootstarp.cs" />
     <Compile Include="Assets\Scripts\Player\Vampirism.cs" />
-    <Compile Include="Assets\Scripts\Characters\Dier.cs" />
+    <Compile Include="Assets\Scripts\IVisitable.cs" />
+    <Compile Include="Assets\Scripts\IVisitor.cs" />
+    <Compile Include="Assets\Scripts\Player\VampirismBar.cs" />
     <Reference Include="UnityEngine">
       <HintPath>C:\Program Files\Unity\Hub\Editor\2021.3.36f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
     </Reference>

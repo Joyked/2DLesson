@@ -1,13 +1,11 @@
-using System;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
-public class HeallObject : MonoBehaviour
+public class HeallObject : MonoBehaviour, IVisitable
 {
     [SerializeField] private float _heallPoint;
 
-    public float Use()
-    {
-        return _heallPoint;
-    }
+    public float Use() => _heallPoint;
+
+    public void Accept(IVisitor visitor)=> 
+        visitor.Visit(this);
 }

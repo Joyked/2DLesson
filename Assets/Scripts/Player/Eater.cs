@@ -1,7 +1,7 @@
 using UnityEngine;
 
 [RequireComponent(typeof(Health))]
-public class Eater : MonoBehaviour
+public class Eater : MonoBehaviour, IVisitor
 {
     private Health _health;
 
@@ -10,10 +10,15 @@ public class Eater : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.TryGetComponent<HeallObject>(out HeallObject heallObject))
-            _health.Heal(heallObject.Use());
-        
-        if (other.TryGetComponent(out FruitAnimation fruits))
-            fruits.BeEaten();
+        var visitables = other.GetComponents<IVisitable>();
+    
+        foreach (var visitable in visitables)
+            visitable.Accept(this);
     }
+    
+    public void Visit(HeallObject heallObject) => 
+        _health.Heal(heallObject.Use());
+
+    public void Visit(FruitAnimator fruitAnimator) => 
+        fruitAnimator.BeEaten();
 }
