@@ -8,12 +8,12 @@ TagManager:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - Vampirism
+  - Enemy
   - Water
   - UI
-  - Fruits
-  - 
-  - 
+  - EnemyBullet
+  - PlayerBullet
+  - Player
   - 
   - 
   - 
