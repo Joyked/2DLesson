@@ -7,7 +7,7 @@ public class Bullet : MonoBehaviour
 
     public event Action<Bullet> Destroyed; 
 
-    private void FixedUpdate() =>
+    private void Update() =>
         transform.position += transform.up * _speed;
 
     private void OnTriggerEnter2D(Collider2D other) =>

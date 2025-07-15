@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using UnityEngine.Pool;
 using UnityEngine;
 
-public class Attack : MonoBehaviour
+public class Shooter : MonoBehaviour
 {
     [SerializeField] private Bullet _bulletPrefab;
 
@@ -10,8 +10,6 @@ public class Attack : MonoBehaviour
     private List<Bullet> _bullets;
     private int _poolCapacity = 5;
     private int _poolMaxSize = 10;
-
-    public bool isShot;
     
     private void Awake()
     {
@@ -44,13 +42,10 @@ public class Attack : MonoBehaviour
     }
 
     private void ActionOnGet(Bullet obj)
-    {
-        if (isShot)
-        {
-            obj.transform.position = transform.position;
-            obj.transform.rotation = transform.rotation;
-            obj.gameObject.SetActive(true);
-        }
+    { 
+        obj.transform.position = transform.position;
+        obj.transform.rotation = transform.rotation;
+        obj.gameObject.SetActive(true);
     }
 
     private void ActionOnRelease(Bullet obj)=>

@@ -22,7 +22,7 @@ public class Player : MonoBehaviour
         if (other.gameObject.TryGetComponent(out Ground ground))
         {
             Died();
-            StartCoroutine(Delay());
+            StartCoroutine(Die());
         }
     }
 
@@ -45,9 +45,10 @@ public class Player : MonoBehaviour
         _mover.enabled = false;
     }
 
-    private IEnumerator Delay()
+    private IEnumerator Die()
     {
-        yield return new WaitForSeconds(2f);
+        float second = 2f;
+        yield return new WaitForSeconds(second);
         GameOver?.Invoke();
         Time.timeScale = 0;
     }

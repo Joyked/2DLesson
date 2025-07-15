@@ -21,7 +21,8 @@ public class SpawnerEnemy : MonoBehaviour
 
     private IEnumerator Create()
     {
-        yield return new WaitForSeconds(5f);
+        float spawnDelayInSecond = 5f;
+        yield return new WaitForSeconds(spawnDelayInSecond);
         _enemy.transform.position = transform.position;
         _enemy.gameObject.SetActive(true);
         _enemy.Respawn();

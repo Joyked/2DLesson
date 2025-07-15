@@ -8,7 +8,7 @@ public class Counter : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _text;
 
     private int _score;
-    private bool isPlay = true;
+    private bool isWorking = true;
 
     public void Reset() =>
         _score = 0;
@@ -17,13 +17,13 @@ public class Counter : MonoBehaviour
         StartCoroutine(UpdateScore());
 
     public void Stop() =>
-        isPlay = false;
+        isWorking = false;
 
     private IEnumerator UpdateScore()
     {
         WaitForSeconds score = new WaitForSeconds(1);
         
-        while (isPlay)
+        while (isWorking)
         {
             yield return score;
             _score++;

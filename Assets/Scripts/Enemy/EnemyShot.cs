@@ -1,18 +1,19 @@
 using System.Collections;
 using UnityEngine;
 
-[RequireComponent(typeof(Attack))]
+[RequireComponent(typeof(Shooter))]
 public class EnemyShot : MonoBehaviour
 {
     [SerializeField] private float _secondReload;
     
     private EnemyMover _mover;
-    private Attack _attack;
+    private Shooter _shooter;
+    private Coroutine _startShot;
     
     private void Awake()
     {
         _mover = GetComponent<EnemyMover>();
-        _attack = GetComponent<Attack>();
+        _shooter = GetComponent<Shooter>();
     }
 
     private void OnEnable() =>
@@ -21,26 +22,21 @@ public class EnemyShot : MonoBehaviour
     private void OnDisable() =>
         _mover.TookPosition -= StartReload;
 
-    public void StopShot()
-    {
-        StopCoroutine(Reload());
-        _attack.isShot = false;
-    }
+    public void StopShot() =>
+        StopCoroutine(_startShot);
     
-    private void StartReload()
-    {
-        StartCoroutine(Reload());
-        _attack.isShot = true;
-    }
+    private void StartReload() =>
+        _startShot = StartCoroutine(Reload());
     
     private IEnumerator Reload()
     {
         WaitForSeconds second = new WaitForSeconds(_secondReload);
-
-        while (true)
+        bool isReloading = true;
+        
+        while (isReloading)
         {
             yield return second;
-            _attack.Shot();
+            _shooter.Shot();
         }
     }
 }

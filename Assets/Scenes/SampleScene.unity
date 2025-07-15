@@ -7037,6 +7037,7 @@ GameObject:
   - component: {fileID: 1795172896}
   - component: {fileID: 1795172897}
   - component: {fileID: 1795172898}
+  - component: {fileID: 1795172899}
   m_Layer: 8
   m_Name: Player
   m_TagString: Untagged
@@ -7212,6 +7213,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _counter: {fileID: 519420034}
+--- !u!114 &1795172899
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1795172890}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c1ffb465011c714798e53ca65b772c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1866970316
 GameObject:
   m_ObjectHideFlags: 0
@@ -7257,6 +7270,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c230206e4cef98f47901ced7690db085, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _inputReader: {fileID: 1795172899}
 --- !u!114 &1866970319
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7269,8 +7283,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce1dbcd956aeb1e4b912c1a4adac09c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _bulletPrefab: {fileID: -5478643137919566646, guid: b8d13590a079b6841bb9f4f5cf500d63, type: 3}
-  isShot: 0
+  _bulletPrefab: {fileID: -8988263080505381002, guid: b8d13590a079b6841bb9f4f5cf500d63, type: 3}
 --- !u!1 &1940994322
 GameObject:
   m_ObjectHideFlags: 0
